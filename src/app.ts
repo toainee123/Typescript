@@ -15,3 +15,27 @@ type user = {
     name:string
 }
 
+function sum(numA: number, numB: number){
+    return numA + numB
+}
+sum(5,6);
+
+type Product = {
+    id: number,
+    name: string;
+}
+
+const getProduct = <T extends Product>(Product: T[]) => {
+    const result = Product.map(item => `<div> ${item.name}</div>`)
+}
+getProduct([{id: 1, name: 'B'}, {id: 2, name: 'B'}])
+
+
+type User = {
+    id: number,
+    name: string
+}
+const person = <U extends user>(a: U[]) => {
+
+}
+person([{id: 2, name:'Bui Viet Toai'}])
