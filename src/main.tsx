@@ -11,8 +11,15 @@ ReactDOM.render(
     <h2>{myAge}</h2>
     <h1>{status ? "Bui Toai": "Toai"}</h1>
     <h1>{product.name}</h1>
+    <h2><Show name="Toai"/></h2>
   </div>, 
   document.querySelector('#root')
 )
 
-destructuring
+type ShowProps = {
+    name: string;
+}
+
+function Show(props: ShowProps){
+    console.log(props.name)
+}
