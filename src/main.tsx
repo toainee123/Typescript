@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import App from './App';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App/>, document.querySelector('#root'));
 // const myName:string = 'Bui Viet Toai';
 // const myAge:number  = 20;
 // const status: boolean = false;
