@@ -5,7 +5,6 @@ import ShowinfoProps from './components/Showinfo'
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <ShowinfoProps name="Toaibv" age = {20}/>
