@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import ShowinfoProps from './components/Showinfo'
 import { Navigate, NavLink, Route, Routes} from 'react-router-dom'
@@ -11,8 +11,19 @@ import WebsiteLayout from '../src/Page/Layouts/websiteLayout'
 import Carousel from '../src/components/Slider'
 import blog from '../src/Page/Blog'
 import Blog from '../src/Page/Blog'
+import ProductDetail from './Page/ProductDetail'
 
 function App() {
+  const [product, setProduct] = useState();
+  useEffect(() =>{
+    const getProudct = async() => {
+      const response = await fetch('http://localhost:8000/products')
+      const data = await response.json()
+      setProduct(data)
+    }
+    getProudct()
+  },[])
+
   return (
     <div className="App">
       <div className="container">
@@ -21,6 +32,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<WebsiteLayout />}>
+                <Route path="/product/:id" element={<ProductDetail/>} />
                 <Route index element={<Homepage />} />
                 <Route path="product" element={<h1>Product Page</h1>}/>
                 <Route path="blog" element= {<Blog />}/>
