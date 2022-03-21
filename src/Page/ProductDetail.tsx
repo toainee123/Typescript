@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom';
 
+
+
 type Props = {}
 type ProductType = {
   id: number,
@@ -13,7 +15,7 @@ const ProductDetail = (props: Props) => {
   const [Product, setProduct] = useState<ProductType>();
   useEffect( () => {
     const getProudct = async() => {
-      const response = await fetch('http://localhost:8000/products'+id)
+      const response = await fetch('http://localhost:3001/products/'+id)
       const data = await response.json();
       setProduct(data);
     }

@@ -9,7 +9,7 @@ const adminLayout = (props: Props) => {
     <div>
         <div>h1</div>
         <main>
-            <Outlet />
+            <Outlet/>
         </main>
     </div>
   )

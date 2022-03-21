@@ -5,7 +5,7 @@ type Props = {}
 const [product, setProduct] = useState();
 useEffect(() =>{
   const getProudct = async() => {
-    const response = await fetch('http://localhost:8000/products')
+    const response = await fetch('http://localhost:3001/products')
     const data = await response.json()
     setProduct(data)
   }
@@ -14,7 +14,7 @@ useEffect(() =>{
 
 function ProductPage({}: Props) {
   return (
-    <div>ProductPage</div>
+    <div></div>
     
   )
 }
