@@ -1,5 +1,6 @@
 import React from 'react';
 import {ProductType} from '../Page/types/products'
+import {Link, NavLink} from 'react-router-dom'
 
 type ProductManagerProps = {
     onRemove: (id: string) => void
@@ -9,6 +10,7 @@ type ProductManagerProps = {
 const ProductManager = ({products, onRemove}: ProductManagerProps) => {
     return(
         <div>
+            <NavLink to='/add'>Them</NavLink>
             <table>
                 <thead>
                     <tr>
@@ -25,6 +27,7 @@ const ProductManager = ({products, onRemove}: ProductManagerProps) => {
                             <td>{item.name}</td>
                             <td>{item.price}</td>
                             <td><button onClick= {() => onRemove(item._id)}>remove</button></td>
+                            <td><Link to={`update/${item._id}`}>Edit</Link></td>
                         </tr>
                     )}
                 </tbody>
