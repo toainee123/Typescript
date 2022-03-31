@@ -1,17 +1,23 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
-import {Outlet} from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import {NavLink, Outlet} from 'react-router-dom';
+import Header from '../../components/header';
+import Slider from '../../components/Slider'
+import Footer from '../../components/Footer'
 
 type Props = {}
 
-const websiteLayout = (props: Props) => {
+const WebsiteLayout = (props: Props) => {
   return (
     <div>
-        <main>
-            <Outlet/>
-        </main>
+      <Header/>
+      <Slider/>
+      <main>
+          <Outlet/>
+      </main>
+      <Footer/>
     </div>
   )
 }
 
-export default websiteLayout
+export default WebsiteLayout

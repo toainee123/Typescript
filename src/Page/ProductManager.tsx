@@ -35,5 +35,4 @@ const ProductManager = ({products, onRemove}: ProductManagerProps) => {
         </div>
     )
 }
-
 export default ProductManager

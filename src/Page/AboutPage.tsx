@@ -5,7 +5,6 @@ type Props = {}
 function AboutPage({}: Props) {
   return (
     <div>About Page</div>
-
   )
 }
 

@@ -14,7 +14,7 @@ const Header = (props: Props) => {
           <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* <Navbar/> */}
+          <Navbar/>
           <Search/>
           </div>
       </div>

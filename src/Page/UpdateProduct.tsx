@@ -34,16 +34,16 @@ const UpdateProduct = (props:UpdateProductProps) => {
     navigate('/product')
   }
   return (
-        <div>
-          <form action="" onSubmit={handleSubmit(onUpdate)}>
-            {/* handleSubmit se bao ve form khi submit -> dong thoi no se chay ham  */}
-            <input type="text" {...register('name', { required: true})} />
-            { errors.name && <span>Fields is required</span>}
-            <input type="number" {...register('price')} />
-            <button>Update</button>
-          </form>
-        </div>
-      )
+      <div>
+        <form action="" onSubmit={handleSubmit(onUpdate)}>
+          {/* handleSubmit se bao ve form khi submit -> dong thoi no se chay ham  */}
+          <input type="text" {...register('name', { required: true})} />
+          { errors.name && <span>Fields is required</span>}
+          <input type="number" {...register('price')} />
+          <button>Update</button>
+        </form>
+      </div>
+    )
   }
 
 
