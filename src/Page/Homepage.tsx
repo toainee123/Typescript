@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+
 
 type Props = {
 
@@ -8,7 +8,7 @@ type Props = {
 function Homepage({}: Props) {
   return (
     <div>
-      <h1>Sản phẩm bán chạy</h1>
+      <h1 className='text-md text-red-500'>Sản phẩm bán chạy</h1>
     </div>
   )
 }

@@ -4,7 +4,9 @@ type Props = {}
 
 const headerAdmin = (props: Props) => {
   return (
-    <div></div>
+    <div>
+      
+    </div>
   )
 }
 
