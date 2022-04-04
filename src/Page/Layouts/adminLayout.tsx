@@ -1,13 +1,22 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-
+import { Outlet, NavLink, useNavigate } from 'react-router-dom'
+import SidebarAdmin from '../../components/Admin/sidebarAdmin'
+import HeaderAdmin from '../../components/Admin/headerAdmin'
+import {isAuthenticate} from '../../utils/localStorage'
 
 type Props = {}
 
 const adminLayout = (props: Props) => {
+    const navigate = useNavigate()
     return (
       <div>
-        admin dashboard
+        <header>
+          <SidebarAdmin/>
+          {/* <HeaderAdmin/> */}
+        </header>
+        <main>
+          <Outlet/>
+        </main>
       </div>
     )
 }

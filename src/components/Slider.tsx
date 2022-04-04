@@ -7,18 +7,18 @@ const Slider = (props: Props) => {
   return (
             <div id="default-carousel" className="relative" data-carousel="static">
             {/* Carousel wrapper */}
-            <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            <div className="overflow-hidden relative h-80 rounded-lg sm:h-96 xl:h-80 2xl:h-96">
                 {/* Item 1 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                <div className="hidden duration-500 ease-in-out" data-carousel-item>
                     <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
                     <img src="https://www.bechtle.com/dam/jcr:a0a76a52-6182-4496-b7f8-0d0553430049/cw42_mainbanner_apple_iphone12-eu.jpg" className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..." />
                 </div>
                 {/* Item 2 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                <div className="hidden duration-500 ease-in-out" data-carousel-item>
                 <img src="http://www.unitedgadgetstore.co.uk/image/catalog/Smartphone-pics/apple/iphone%207%20plus%20-%2032GB/category_banner_ip7_plus_copy_3.jpg" className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..." />
                 </div>
                 {/* Item 3 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                <div className="hidden duration-500 ease-in-out" data-carousel-item>
                 <img src="https://media.idownloadblog.com/wp-content/uploads/2016/09/Apple-This-is-iPhone-7-banner.png" className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..." />
                 </div>
             </div>

@@ -17,6 +17,7 @@ import Slider from './components/Slider'
 import Signup from './Page/Signup'
 import Signin from './Page/Signin'
 import Blog from './Page/Blog'
+import SidebarAdmin from './components/Admin/sidebarAdmin'
 
 function App() {
   const [products, setProduct] = useState<ProductType[]>([])
@@ -54,13 +55,14 @@ function App() {
               <Route index element={<Homepage/>}/>
               <Route path='blog' element={<Blog/>}/>
               <Route path="product/:id" element={<ProductDetail/>} />
-              <Route path="product" element={<ProductManager products = {products} onRemove= {removeItem} />}/>
-              <Route path='add' element={<ProductAdd add = {add}/>}/>
-              <Route path='/product/update/:id' element={<UpdateProduct onupdate = {updateItem}/>}/>
             </Route>
-            <Route path='/admin' element={<AdminLayout/>}>
-              <Route index element={<Navigate to= "dashboard"/>}/>
+            <Route path='admin' element={<SidebarAdmin/>}>
+              <Route index element={<Navigate to={"dashboard"} />}/>
               <Route path="dashboard" element={<h1>Dashboard Page</h1>}/>
+              <Route path='add' element={<ProductAdd add = {add}/>}/>
+              {/* <Route path='add' element={<h2>add</h2>} /> */}
+              <Route path="product" element={<ProductManager products = {products} onRemove= {removeItem} />}/>
+              <Route path='product/update/:id' element={<UpdateProduct onupdate = {updateItem}/>}/>
             </Route>  
             <Route path='signup' element={<Signup/>}/>
             <Route path='signin' element={<Signin/>}/>
