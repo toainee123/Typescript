@@ -37,7 +37,7 @@ function App() {
    console.log(data);
     setProduct([...products,data])
   }
-  const updateItem = async (product) => {
+  const updateItem = async (product:any) => {
     const {data} = await update(product)
     // {data} duoc destructuring tu product ham update duoc lay tu api/product
     setProduct(products.map(item => item._id === data._id ? data : item))

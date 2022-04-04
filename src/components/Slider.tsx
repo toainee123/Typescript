@@ -8,13 +8,13 @@ const Slider = (props: Props) => {
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="d-block w-100" src="https://ap.poly.edu.vn/images/Banner-AP.png" alt="First slide" />
+                    <img className="d-block w-100" src="https://media.idownloadblog.com/wp-content/uploads/2016/09/Apple-This-is-iPhone-7-banner.png" alt="First slide" />
                 </div>
                 <div className="carousel-item">
-                    <img className="d-block w-100" src="https://ap.poly.edu.vn/images/Banner-AP.png" alt="Second slide" />
+                    <img className="d-block w-100" src="http://www.unitedgadgetstore.co.uk/image/catalog/Smartphone-pics/apple/iphone%207%20plus%20-%2032GB/category_banner_ip7_plus_copy_3.jpg" alt="Second slide" />
                 </div>
                 <div className="carousel-item">
-                    <img className="d-block w-100" src="https://ap.poly.edu.vn/images/Banner-AP.png" alt="Third slide" />
+                    <img className="d-block w-100" src="https://www.bechtle.com/dam/jcr:a0a76a52-6182-4496-b7f8-0d0553430049/cw42_mainbanner_apple_iphone12-eu.jpg" alt="Third slide" />
                 </div>
             </div>
             <NavLink className="carousel-control-prev" to="#carouselExampleControls" role="button" data-slide="prev">
