@@ -14,12 +14,12 @@ export const get = (id:any) =>{
 }
 export const onRemove = (id:string) =>{
     
-    const url = `/product/${id}`;
+    const url = `/products/${id}`;
     return instance.delete(url)
 }
 export const addProduct = (product:ProductType) => {
 const { token,user} = isAuthenticate()
-    const url = `/product/${user._id}`
+    const url = `/products/${user._id}`
     return instance.post(url,product,{
         headers:{
             "Authorization": `Bearer${token}`

@@ -7,7 +7,7 @@ type Props = {}
 const adminLayout = (props: Props) => {
     return (
       <div>
-        
+        admin dashboard
       </div>
     )
 }

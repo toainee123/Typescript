@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom'
 import {signin} from '../api/Auth'
+import { isAuthenticate } from '../utils/localStorage';
 
 type SigninProps = {
     name: String,
@@ -17,6 +18,8 @@ const Signin = () => {
     const onSubmit: SubmitHandler<SigninProps> = async (dataforn:any) => {
         const { data: user } = await signin(dataforn);
         localStorage.setItem('user', JSON.stringify(user))
+        console.log(dataforn);
+        
         
     }
   return (

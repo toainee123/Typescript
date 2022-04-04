@@ -16,7 +16,7 @@ const Signup = (props: signinProps) => {
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<formInput> = data => {
         signup(data);
-        // navigate('/admin/product')
+        
     }
 
   return (
