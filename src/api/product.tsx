@@ -1,9 +1,6 @@
 import instance from './instance';
 import {ProductType} from '../Page/types/products'
 import { isAuthenticate } from '../utils/localStorage';
-
-
-
 export const list = () =>{
     const url = `/products`
     return instance.get(url)
@@ -13,7 +10,6 @@ export const get = (id:any) =>{
     return instance.get(url)
 }
 export const onRemove = (id:string) =>{
-    
     const url = `/products/${id}`;
     return instance.delete(url)
 }
@@ -22,11 +18,12 @@ const { token,user} = isAuthenticate()
     const url = `/products/${user._id}`
     return instance.post(url,product,{
         headers:{
-            "Authorization": `Bearer${token}`
+            "Authorization": `Bearer ${token}`
         }
     })
+    
 }
 export const update = (product:ProductType) => {
-    const url = `/product/${product._id}`;
+    const url = `/products/${product._id}`;
     return instance.put(url,product)
 }

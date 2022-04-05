@@ -18,9 +18,14 @@ import Signup from './Page/Signup'
 import Signin from './Page/Signin'
 import Blog from './Page/Blog'
 import SidebarAdmin from './components/Admin/sidebarAdmin'
+import Category from './Page/Category'
+import PrivateRoute from './Page/PrivateRoute'
+import {ListCate, RemoveCate} from './api/Category'
+
 
 function App() {
   const [products, setProduct] = useState<ProductType[]>([])
+  
   useEffect(() =>{
     const getProduct = async () => {
       const {data} = await list()
@@ -45,6 +50,21 @@ function App() {
     // Ham setProduct se render lai neu Product duoc thay doi 
     // setProduct tao ra 1 mang moi va kiem tra neu data cu trung voi data moi thi lay data moi con neu khong thi giu nguyen 
   }
+
+  // Category 
+  const [category, setCategory] = useState()
+  useEffect(() =>{
+    const getCategory = async () => {
+      const {data} = await ListCate()
+      setProduct(data)
+    }
+    getCategory()
+  },[])
+  const removecate = async (id:string) => {
+    await RemoveCate(id)
+    setProduct(products.filter(item => item._id !== id))
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -56,11 +76,11 @@ function App() {
               <Route path='blog' element={<Blog/>}/>
               <Route path="product/:id" element={<ProductDetail/>} />
             </Route>
-            <Route path='admin' element={<SidebarAdmin/>}>
+            <Route path='admin' element={<PrivateRoute><SidebarAdmin/></PrivateRoute>}>
               <Route index element={<Navigate to={"dashboard"} />}/>
               <Route path="dashboard" element={<h1>Dashboard Page</h1>}/>
               <Route path='add' element={<ProductAdd add = {add}/>}/>
-              {/* <Route path='add' element={<h2>add</h2>} /> */}
+              <Route path='category' element={<Category category = {category} RemoveCate= {removecate} />}/>
               <Route path="product" element={<ProductManager products = {products} onRemove= {removeItem} />}/>
               <Route path='product/update/:id' element={<UpdateProduct onupdate = {updateItem}/>}/>
             </Route>  

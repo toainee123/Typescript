@@ -31,7 +31,7 @@ const UpdateProduct = (props:UpdateProductProps) => {
 
   const onUpdate:SubmitHandler<formInput> = data => {
     props.onupdate(data)
-    navigate('/product')
+    navigate('/admin/product')
   }
   return (
       <div>
@@ -39,7 +39,7 @@ const UpdateProduct = (props:UpdateProductProps) => {
           {/* handleSubmit se bao ve form khi submit -> dong thoi no se chay ham  */}
           <input type="text" {...register('name', { required: true})} />
           { errors.name && <span>Fields is required</span>}
-          <input type="number" {...register('price')} />
+          <input type="number" {...register('price')}/>
           <button>Update</button>
         </form>
       </div>

@@ -11,12 +11,14 @@ type FormInput = {
     price: number
 }
 
+
+
 const ProductAdd = ({add}: ProductAddProps) => {
     const {register, handleSubmit} = useForm<FormInput>()
     const navigate = useNavigate();
     const submit = (data: any) =>{
         add(data)
-        navigate('/product')
+        navigate('/admin/product')
     }
     return (
         <form action='' onSubmit={handleSubmit(submit)}>
