@@ -3,10 +3,11 @@ import { Navigate, NavLink, Link } from 'react-router-dom'
 import {TypeCategory} from '../Page/types/Category'
 type CategoryProps = {
     RemoveCate: (id: string) => void
-  category: TypeCategory[]
+    category: TypeCategory[]
 }
 
 const Category = ({category, RemoveCate}: CategoryProps) => {
+    console.log(category)
   return (
         <table className="table-auto w-full border-2 bg-gradient-to-tl from-green-200 to-indigo-600">
             <thead>

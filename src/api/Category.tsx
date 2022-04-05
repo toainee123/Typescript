@@ -20,7 +20,6 @@ const { token,user} = isAuthenticate()
           "Authorization": `Bearer ${token}`
       }
   })
-  
 }
 export const update = (category:TypeCategory) => {
   const url = `/category/${category._id}`;

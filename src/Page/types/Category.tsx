@@ -1,4 +1,4 @@
 export type TypeCategory = {
-    _id?: String,
+    _id?: string,
     name: string,
 }
