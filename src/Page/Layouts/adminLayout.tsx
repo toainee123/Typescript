@@ -1,7 +1,6 @@
 import React from 'react'
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import SidebarAdmin from '../../components/Admin/sidebarAdmin'
-import HeaderAdmin from '../../components/Admin/headerAdmin'
 import {isAuthenticate} from '../../utils/localStorage'
 
 type Props = {}

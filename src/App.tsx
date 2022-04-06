@@ -78,7 +78,7 @@ function App() {
           <Routes>
             <Route path="/" element={<WebsiteLayout/>}>
               {/* Component phai viet hoa  */}
-              <Route index element={<Homepage/>}/>
+              <Route index  element={<Homepage/>}/>
               <Route path='blog' element={<Blog/>}/>
               <Route path="product/:id" element={<ProductDetail/>} />
             </Route>
