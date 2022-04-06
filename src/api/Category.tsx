@@ -12,9 +12,9 @@ export const RemoveCate = (id:string) =>{
   const url = `/category/${id}`;
   return instance.delete(url)
 }
-export const addCategory = (category:TypeCategory) => {
+export const CateAdd = (category:TypeCategory) => {
 const { token,user} = isAuthenticate()
-  const url = `/category${user._id}`
+  const url = `/category/${user._id}`
   return instance.post(url,category,{
       headers:{
           "Authorization": `Bearer ${token}`
