@@ -21,9 +21,12 @@ const { token,user} = isAuthenticate()
             "Authorization": `Bearer ${token}`
         }
     })
-    
 }
 export const update = (product:ProductType) => {
     const url = `/products/${product._id}`;
     return instance.put(url,product)
+}
+export const ProductDetail = (id:any) => {
+    const url = `/products/${id}`;
+    return instance.get(url)
 }

@@ -23,10 +23,9 @@ import PrivateRoute from './Page/PrivateRoute'
 import {ListCate, RemoveCate,CateAdd} from './api/Category'
 import { TypeCategory } from './Page/types/Category'
 import AddCategory from './Page/AddCategory'
-
+import ProductPage from './Page/Productpage'
 function App() {
   const [products, setProduct] = useState<ProductType[]>([])
-  
   useEffect(() =>{
     const getProduct = async () => {
       const {data} = await list()
@@ -35,8 +34,11 @@ function App() {
     getProduct()
   },[])
   const removeItem = async (id:string) => {
-    await onRemove(id)
-    setProduct(products.filter(item => item._id !== id))
+    console.log(id);
+    const {data} = await onRemove(id)
+    setProduct(products.filter(item => item._id !== data._id))
+    console.log(data);
+    
   }
 
   const add = async (product:any) => {
@@ -66,7 +68,6 @@ function App() {
   }
   const addCategory = async (categoryData:any) => {
     const {data} =  await CateAdd(categoryData)
-    console.log('data',data);
     setCategories([...categories, data]);
     
     // setCategory([...category,data])
@@ -78,16 +79,18 @@ function App() {
           <Routes>
             <Route path="/" element={<WebsiteLayout/>}>
               {/* Component phai viet hoa  */}
-              <Route index  element={<Homepage/>}/>
+              <Route index  element={<Homepage products = {products}/>}/>
+              {/* <Route path='/products' element={<ProductPage/>}/> */}
               <Route path='blog' element={<Blog/>}/>
-              <Route path="product/:id" element={<ProductDetail/>} />
+              <Route path="/products/:id" element={<ProductDetail/>} />
+              <Route path='/products' element={<ProductPage/>}/>
             </Route>
             <Route path='admin' element={<PrivateRoute><SidebarAdmin/></PrivateRoute>}>
               <Route index element={<Navigate to={"dashboard"} />}/>
               <Route path='add' element={<ProductAdd add = {add} Categories = {categories}/>}/>
               <Route path='category' element={<Category category = {categories} RemoveCate= {removecate} />}/>
               <Route path='category/add' element={<AddCategory add = {addCategory}/>}/>
-              <Route path="product" element={<ProductManager products = {products} onRemove= {removeItem} />}/>
+              <Route path="product" element={<ProductManager products = {products} onhandleRemove= {removeItem} />}/>
               <Route path='product/update/:id' element={<UpdateProduct onupdate = {updateItem}/>}/>
             </Route>  
             <Route path='signup' element={<Signup/>}/>
