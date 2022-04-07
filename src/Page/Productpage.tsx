@@ -14,7 +14,9 @@ useEffect(() =>{
 
 function ProductPage({}: Props) {
   return (
-    <div></div>
+    <div>
+      abc
+    </div>
     
   )
 }

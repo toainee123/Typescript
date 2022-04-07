@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import {ProductType} from '../Page/types/products'
 import {TypeCategory} from '../../src/Page/types/Category'
 type ProductAddProps = {
@@ -27,6 +27,7 @@ const ProductAdd = ({add, Categories}: ProductAddProps) => {
         navigate('/admin/product')
     }
     return (
+        
         <form action='' onSubmit={handleSubmit(submit)}>
             <div className="mb-6">
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Product Name</label>

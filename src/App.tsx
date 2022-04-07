@@ -11,7 +11,7 @@ import {ProductType} from './Page/types/products'
 import {list, onRemove} from '../src/api/product'
 import ProductAdd from '../src/Page/ProductAdd';
 import {addProduct} from '../src/api/product'
-import UpdateProduct from '../src/Page/UpdateProduct'
+import UpdateProducts from '../src/Page/UpdateProduct'
 import { update } from '../src/api/product'
 import Slider from './components/Slider'
 import Signup from './Page/Signup'
@@ -24,6 +24,9 @@ import {ListCate, RemoveCate,CateAdd} from './api/Category'
 import { TypeCategory } from './Page/types/Category'
 import AddCategory from './Page/AddCategory'
 import ProductPage from './Page/Productpage'
+import {UserType} from './Page/types/User'
+import UpdateCategory from './Page/UpdateCategory'
+import ContactPage from './Page/ContactPage'
 function App() {
   const [products, setProduct] = useState<ProductType[]>([])
   useEffect(() =>{
@@ -59,10 +62,12 @@ function App() {
     const getCategory = async () => {
       const {data} = await ListCate()
       setCategories(data)
+      
     }
     getCategory()
   },[])
   const removecate = async (id:string) => {
+    console.log(id);
     await RemoveCate(id)
     setCategories(categories.filter(item => item._id !== id))
   }
@@ -71,7 +76,16 @@ function App() {
     setCategories([...categories, data]);
     
     // setCategory([...category,data])
-   }
+  }
+  const UpdateCate = async (categoryData:any) => {
+    const {data} = await update(categoryData)
+    // {data} duoc destructuring tu product ham update duoc lay tu api/product
+    setProduct(products.map(item => item._id === data._id ? data : item))
+    // Ham setProduct se render lai neu Product duoc thay doi 
+    // setProduct tao ra 1 mang moi va kiem tra neu data cu trung voi data moi thi lay data moi con neu khong thi giu nguyen 
+  }
+  // // User
+  // const [user, setUser] = useState
   return (
     <div className="App">
       <div className="container">
@@ -83,7 +97,8 @@ function App() {
               {/* <Route path='/products' element={<ProductPage/>}/> */}
               <Route path='blog' element={<Blog/>}/>
               <Route path="/products/:id" element={<ProductDetail/>} />
-              <Route path='/products' element={<ProductPage/>}/>
+              <Route path="/product" element={<h1>Product Page</h1>}/>
+              <Route path="/contact" element={<ContactPage/>}/>
             </Route>
             <Route path='admin' element={<PrivateRoute><SidebarAdmin/></PrivateRoute>}>
               <Route index element={<Navigate to={"dashboard"} />}/>
@@ -91,7 +106,9 @@ function App() {
               <Route path='category' element={<Category category = {categories} RemoveCate= {removecate} />}/>
               <Route path='category/add' element={<AddCategory add = {addCategory}/>}/>
               <Route path="product" element={<ProductManager products = {products} onhandleRemove= {removeItem} />}/>
-              <Route path='product/update/:id' element={<UpdateProduct onupdate = {updateItem}/>}/>
+              <Route path='product/update/:id' element={<UpdateProducts onupdate = {updateItem}/>}/>
+              {/* <Route path='/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/> */}
+              <Route path= 'user' element={<h1>User</h1>}/>
             </Route>  
             <Route path='signup' element={<Signup/>}/>
             <Route path='signin' element={<Signin/>}/>

@@ -14,7 +14,7 @@ function Homepage({products}: HomepageProps) {
             <div>
                 <div className=" 2xl:container 2xl:mx-auto">
                     <div className=" bg-gray-50 text-center lg:py-10 md:py-8 py-6">
-                        <p className=" w-10/12 mx-auto md:w-full  font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-center text-gray-800">Iphone in 2019-2022</p>
+                        <p className=" w-10/12 mx-auto md:w-full  font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-center text-gray-800">Apple Products 2019-2022</p>
                     </div>
                     <div className=" py-6 lg:px-20 md:px-6 px-4">
                         <p className=" font-normal text-sm leading-3 text-gray-600 ">Home/Products</p>
@@ -30,7 +30,7 @@ function Homepage({products}: HomepageProps) {
                                 <p className=" font-normal text-base leading-4 text-gray-800">Filter</p>
                             </div>
                     </div>
-                    <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
+                    <div className=" grid lg:grid-cols-5 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
                         {products?.map((item) =>
                             <div className=" relative ">
                                 <div className=" absolute top-0 left-0 py-2 px-4 bg-white bg-opacity-50 ">

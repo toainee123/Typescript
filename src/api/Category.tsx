@@ -2,10 +2,12 @@ import instance from './instance';
 import { isAuthenticate } from '../utils/localStorage';
 import { TypeCategory } from '../Page/types/Category';
 
-
-
 export const ListCate = () => {
   const url = `/category`
+  return instance.get(url)
+}
+export const getCate = (id:any) =>{
+  const url = `/category/${id}`
   return instance.get(url)
 }
 export const RemoveCate = (id:string) =>{

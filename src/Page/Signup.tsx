@@ -8,6 +8,7 @@ type formInput = {
     name: string,
     email: string,
     password: string,
+    role: number
 }
 
 
@@ -68,9 +69,12 @@ const Signup = (props: signinProps) => {
                     <hr className="w-full bg-gray-400  " />
                 </div>
                 <form action="" onSubmit={handleSubmit(onSubmit)}>
-                  <div>
+                    <div>
                       <input aria-label="enter email name" {...register('name', {required: true})} role="input" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" placeholder='Username'/>
-                  </div>
+                    </div>
+                    <div>
+                      <input aria-label="enter email name" {...register('role', {required: true})} value="0" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" placeholder='Username' hidden/>
+                    </div>
                   <div>
                       <input aria-label="enter email adress" {...register('email', {required: true})} role="input" type="email" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" placeholder='Email'/>
                   </div>
@@ -88,9 +92,9 @@ const Signup = (props: signinProps) => {
                       </div>
                   </div>
                   <div className="mt-8">
-                      <button role="button" aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
-                          Sign In
-                      </button>
+                        <button role="button" aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
+                          Sign Up
+                        </button>
                   </div>
                 </form>
             </div>
