@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { Navigate, NavLink, Route, Routes} from 'react-router-dom'
 import Homepage from './Page/Homepage'
-import Header from './components/header'
-import AdminLayout from '../src/Page/Layouts/adminLayout'
 import WebsiteLayout from './Page/Layouts/websiteLayout'
 import ProductDetail from './Page/ProductDetail'
 import ProductManager from './Page/ProductManager'
@@ -13,7 +11,6 @@ import ProductAdd from '../src/Page/ProductAdd';
 import {addProduct} from '../src/api/product'
 import UpdateProducts from '../src/Page/UpdateProduct'
 import { update } from '../src/api/product'
-import Slider from './components/Slider'
 import Signup from './Page/Signup'
 import Signin from './Page/Signin'
 import Blog from './Page/Blog'
@@ -27,6 +24,15 @@ import ProductPage from './Page/Productpage'
 import {UserType} from './Page/types/User'
 import UpdateCategory from './Page/UpdateCategory'
 import ContactPage from './Page/ContactPage'
+import Cart from './Page/Cart'
+import {listUser, Useradd, deleteUser} from './api/user'
+import User from './Page/User'
+import AddUser from './Page/AddUser'
+
+
+
+
+
 function App() {
   const [products, setProduct] = useState<ProductType[]>([])
   useEffect(() =>{
@@ -62,7 +68,6 @@ function App() {
     const getCategory = async () => {
       const {data} = await ListCate()
       setCategories(data)
-      
     }
     getCategory()
   },[])
@@ -84,8 +89,28 @@ function App() {
     // Ham setProduct se render lai neu Product duoc thay doi 
     // setProduct tao ra 1 mang moi va kiem tra neu data cu trung voi data moi thi lay data moi con neu khong thi giu nguyen 
   }
-  // // User
-  // const [user, setUser] = useState
+  // User
+  const [user, setUser] = useState<UserType[]>()
+  useEffect(() => {
+    const getUser = async () => {
+      const {data} = await listUser()
+      setUser(data)
+    }
+    getUser()
+  }, [])
+  const addUser = async(user:any) => {
+    const {data}= await Useradd(user)
+    console.log(data);
+    setUser([...user, data])
+    console.log(setUser);
+    
+  }
+  const removeUserr = async (id:string) => {
+    await deleteUser(id)
+    console.log(id);
+    
+    setUser(user.filter(item => item._id !== id))
+  }
   return (
     <div className="App">
       <div className="container">
@@ -99,16 +124,17 @@ function App() {
               <Route path="/products/:id" element={<ProductDetail/>} />
               <Route path="/product" element={<h1>Product Page</h1>}/>
               <Route path="/contact" element={<ContactPage/>}/>
+              <Route path="/cart" element={<Cart/>}/>
             </Route>
             <Route path='admin' element={<PrivateRoute><SidebarAdmin/></PrivateRoute>}>
-              <Route index element={<Navigate to={"dashboard"} />}/>
               <Route path='add' element={<ProductAdd add = {add} Categories = {categories}/>}/>
               <Route path='category' element={<Category category = {categories} RemoveCate= {removecate} />}/>
               <Route path='category/add' element={<AddCategory add = {addCategory}/>}/>
               <Route path="product" element={<ProductManager products = {products} onhandleRemove= {removeItem} />}/>
               <Route path='product/update/:id' element={<UpdateProducts onupdate = {updateItem}/>}/>
-              {/* <Route path='/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/> */}
-              <Route path= 'user' element={<h1>User</h1>}/>
+              <Route path='category/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/>
+              <Route path= 'user' element={<User userAdd = {user} removeUser = {removeUserr}/>}/>
+              <Route path='/admin/addUser' element={<AddUser addUser = {addUser}/>}/>
             </Route>  
             <Route path='signup' element={<Signup/>}/>
             <Route path='signin' element={<Signin/>}/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import {ProductType} from '../Page/types/products'
 import {Link, NavLink} from 'react-router-dom'
 
@@ -8,7 +9,7 @@ type ProductManagerProps = {
 }
 
 
-const ProductManager = ({products, onhandleRemove}: ProductManagerProps) => {
+const ProductManager = ({products, onhandleRemove}: ProductManagerProps) => {  
     
     return(
         <div>
@@ -22,7 +23,7 @@ const ProductManager = ({products, onhandleRemove}: ProductManagerProps) => {
                         <th>Image</th>
                         <th>Description</th>
                         <th>Titile</th>
-                        <th colSpan={1}>Active</th>
+                        <th colSpan={2}>Active</th>
                     </tr>
                 </thead>
                 <tbody>

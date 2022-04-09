@@ -19,7 +19,7 @@ const Signin = () => {
         const { data: user } = await signin(dataforn);
         localStorage.setItem('user', JSON.stringify(user))
         console.log(dataforn);
-        navigate('/')
+        navigate('/admin')
         
     }
   return (
