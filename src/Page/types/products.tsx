@@ -5,6 +5,7 @@ export type ProductType = {
     img: string,
     desc: string,
     title: string,
+    category: string,
 }
 
 export type SearchProduct = {

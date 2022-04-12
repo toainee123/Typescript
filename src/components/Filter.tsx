@@ -41,7 +41,6 @@ const Filter1 = () => {
             luxelondon: false,
         });
     };
-
     return (
         <div className="2xl:container 2xl:mx-auto">
             <div className=" md:py-12 lg:px-20 md:px-6 py-9 px-4">
@@ -95,7 +94,7 @@ const Filter1 = () => {
                             <path d="M9.5 16C13.0899 16 16 13.0899 16 9.5C16 5.91015 13.0899 3 9.5 3C5.91015 3 3 5.91015 3 9.5C3 13.0899 5.91015 16 9.5 16Z" stroke="#1F2937" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M19 10H12C10.8954 10 10 10.8954 10 12V19C10 20.1046 10.8954 21 12 21H19C20.1046 21 21 20.1046 21 19V12C21 10.8954 20.1046 10 19 10Z" stroke="#1F2937" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <p className=" lg:text-2xl text-xl lg:leading-6 leading-5 font-medium text-gray-800 ">Loại máy</p>
+                        <p className=" lg:text-2xl text-xl lg:leading-6 leading-5 font-medium text-gray-800 ">Danh mục</p>
                     </div>
                     <div className=" md:flex md:space-x-6 mt-8 grid grid-cols-3 gap-y-8 flex-wrap">
                         <div className=" flex space-x-2 md:justify-center md:items-center items-center justify-start">

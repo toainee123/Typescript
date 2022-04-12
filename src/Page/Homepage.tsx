@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import CTAs from '../Page/CTAs'
 import {ProductType, SearchProduct} from '../Page/types/products'
-
+import Filter from '../components/Filter'
 type HomepageProps = {
     products: ProductType[],
     onSearch: SearchProduct[]
@@ -22,14 +22,7 @@ function Homepage({products, onSearch}: HomepageProps) {
                         <hr className=" w-full bg-gray-200 my-6" />
 
                         <div className=" flex justify-between items-center">
-                            <div className=" flex space-x-3 justify-center items-center">
-                                <svg className=" cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.75 7.5H20.25" stroke="#1F2937" strokeMiterlimit="10" strokeLinecap="round" />
-                                    <path d="M3.75 12H20.25" stroke="#1F2937" strokeMiterlimit="10" strokeLinecap="round" />
-                                    <path d="M3.75 16.5H20.25" stroke="#1F2937" strokeMiterlimit="10" strokeLinecap="round" />
-                                </svg>
-                                <p className=" font-normal text-base leading-4 text-gray-800">Filter</p>
-                            </div>
+                            <Filter/>
                     </div>
                     <div className=" grid lg:grid-cols-5 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10">
                         {products?.map((item) =>

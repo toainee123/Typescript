@@ -9,8 +9,8 @@ type UpdateProductsProps = {
     // ham onupdate nhan kieu du lieu la ProductType
 }
 type Forminput ={
-    name: String,
-    price: Number,
+    name: string,
+    price: number,
     img: string,
     title: string,
     desc: string,
