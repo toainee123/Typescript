@@ -6,7 +6,7 @@ import WebsiteLayout from './Page/Layouts/websiteLayout'
 import ProductDetail from './Page/ProductDetail'
 import ProductManager from './Page/ProductManager'
 import {ProductType} from './Page/types/products'
-import {list, onRemove} from '../src/api/product'
+import {list, onRemove, Search} from '../src/api/product'
 import ProductAdd from '../src/Page/ProductAdd';
 import {addProduct} from '../src/api/product'
 import UpdateProducts from '../src/Page/UpdateProduct'
@@ -20,7 +20,7 @@ import PrivateRoute from './Page/PrivateRoute'
 import {ListCate, RemoveCate,CateAdd} from './api/Category'
 import { TypeCategory } from './Page/types/Category'
 import AddCategory from './Page/AddCategory'
-import ProductPage from './Page/Productpage'
+import ProductPage from './Page/PageProducts'
 import {UserType} from './Page/types/User'
 import UpdateCategory from './Page/UpdateCategory'
 import ContactPage from './Page/ContactPage'
@@ -43,12 +43,17 @@ function App() {
     getProduct()
   },[])
   const removeItem = async (id:string) => {
-    console.log(id);
     const {data} = await onRemove(id)
     setProduct(products.filter(item => item._id !== data._id))
     console.log(data);
     
   }
+
+  // const onSearch = async (text: any) => {
+  //   const {data} = await Search(text);
+  //   setProduct([...products, data])
+    
+  // }
 
   const add = async (product:any) => {
    const {data} =  await addProduct(product)
@@ -85,7 +90,7 @@ function App() {
   const UpdateCate = async (categoryData:any) => {
     const {data} = await update(categoryData)
     // {data} duoc destructuring tu product ham update duoc lay tu api/product
-    setProduct(products.map(item => item._id === data._id ? data : item))
+    setCategories(categories.map(item => item._id === data._id ? data : item))
     // Ham setProduct se render lai neu Product duoc thay doi 
     // setProduct tao ra 1 mang moi va kiem tra neu data cu trung voi data moi thi lay data moi con neu khong thi giu nguyen 
   }
@@ -103,14 +108,14 @@ function App() {
     console.log(data);
     setUser([...user, data])
     console.log(setUser);
-    
   }
+
   const removeUserr = async (id:string) => {
     await deleteUser(id)
     console.log(id);
-    
     setUser(user.filter(item => item._id !== id))
   }
+  // Xem giúp t phần 
   return (
     <div className="App">
       <div className="container">
@@ -118,11 +123,15 @@ function App() {
           <Routes>
             <Route path="/" element={<WebsiteLayout/>}>
               {/* Component phai viet hoa  */}
-              <Route index  element={<Homepage products = {products}/>}/>
+              <Route index  element={<Homepage products = {products}   />}/>
               {/* <Route path='/products' element={<ProductPage/>}/> */}
               <Route path='blog' element={<Blog/>}/>
               <Route path="/products/:id" element={<ProductDetail/>} />
-              <Route path="/product" element={<h1>Product Page</h1>}/>
+
+              <Route path="/products" element={<ProductPage products={products}/>}/>
+              {/* Phần hiển thị sản phẩm sau khi search */}
+
+
               <Route path="/contact" element={<ContactPage/>}/>
               <Route path="/cart" element={<Cart/>}/>
             </Route>
@@ -132,7 +141,7 @@ function App() {
               <Route path='category/add' element={<AddCategory add = {addCategory}/>}/>
               <Route path="product" element={<ProductManager products = {products} onhandleRemove= {removeItem} />}/>
               <Route path='product/update/:id' element={<UpdateProducts onupdate = {updateItem}/>}/>
-              <Route path='category/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/>
+              <Route path='category/update/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/>
               <Route path= 'user' element={<User userAdd = {user} removeUser = {removeUserr}/>}/>
               <Route path='/admin/addUser' element={<AddUser addUser = {addUser}/>}/>
             </Route>  

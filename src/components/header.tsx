@@ -17,14 +17,14 @@ const Header = (props: Props) => {
 
   return (
     <div>
-      {isAuthenticate() ? (  
+      {/* {isAuthenticate() ? (  
       <div>
         <AfterSignIn/>
       </div>
       ) : (
+        
+        )} */}
         <BeforeSignIn/>
-
-      )}
   </div>
    
   )

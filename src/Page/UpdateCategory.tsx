@@ -28,6 +28,8 @@ const UpdateCategory = (props: UpdateCategoryProps) => {
       const onUpdate:SubmitHandler<Forminput> = (data:any) => {
         // data se duoc nhan tu form 
         props.updateCate(data);
+        console.log(data);
+        
         // Nhan du lieu sau khi chinh sua cua data
         navigate('/admin/product')
         // Chuyen trang 

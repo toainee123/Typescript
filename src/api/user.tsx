@@ -9,6 +9,6 @@ export const Useradd = (user:UserType) => {
     return instance.post(url,user)
 }
 export const deleteUser = (id:string) => {
-    const url = '/removeUser/:id';
+    const url = `/removeUser/${id}`;
     return instance.delete(url)
 }

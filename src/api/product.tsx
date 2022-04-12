@@ -30,3 +30,7 @@ export const ProductDetail = (id:any) => {
     const url = `/products/${id}`;
     return instance.get(url)
 }
+export const Search = (product:ProductType) => {
+    const url = `/search?q=${product}`
+    return instance.get(url)
+}
