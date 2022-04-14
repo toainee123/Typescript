@@ -139,7 +139,7 @@ function App() {
               <Route path='add' element={<ProductAdd add = {add} Categories = {categories}/>}/>
               <Route path='category' element={<Category category = {categories} RemoveCate= {removecate} />}/>
               <Route path='category/add' element={<AddCategory add = {addCategory}/>}/>
-              <Route path="product" element={<ProductManager products = {products} onhandleRemove= {removeItem} />}/>
+              <Route path="product" element={<ProductManager products = {products} category = {categories} onhandleRemove= {removeItem} />}/>
               <Route path='product/update/:id' element={<UpdateProducts onupdate = {updateItem}/>}/>
               <Route path='category/update/:id' element={<UpdateCategory updateCate = {UpdateCate}/>}/>
               <Route path= 'user' element={<User userAdd = {user} removeUser = {removeUserr}/>}/>

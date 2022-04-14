@@ -26,18 +26,16 @@ const ProductDetail = (props: Props) => {
             setCount((prev) => prev - 1);
         }
     };
+
+
   const {id} = useParams();
-  const {name} = useParams()
   const [Product, setProduct] = useState<ProductType>();
   useEffect( () => {
     const getProudct = async() => {
       const {data} = await axios('http://localhost:3003/api/products/'+id)
       setProduct(data);
-      console.log(data.img);
-      
     }
     getProudct();
-    
   }, [])
 
   return (

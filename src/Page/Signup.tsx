@@ -17,7 +17,9 @@ const Signup = (props: signinProps) => {
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<formInput> = data => {
         signup(data);
+        // Api Signup nhận cái data
         navigate('/signin')
+        // Sau khi đăng kí xong nó nhảy về trang đăng nhập
     }
 
   return (
@@ -69,6 +71,7 @@ const Signup = (props: signinProps) => {
                     <hr className="w-full bg-gray-400  " />
                 </div>
                 <form action="" onSubmit={handleSubmit(onSubmit)}>
+                    {/* Khi submit thì nó chạy function ở trong handleSubmit  */}
                     <div>
                       <input aria-label="enter email name" {...register('name', {required: true})} role="input" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" placeholder='Username'/>
                     </div>

@@ -7,7 +7,6 @@ type CategoryProps = {
 }
 
 const Category = ({category, RemoveCate}: CategoryProps) => {
-    console.log(category);
     
   return (
     <div>

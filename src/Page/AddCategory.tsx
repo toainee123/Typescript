@@ -13,7 +13,6 @@ const AddCategory = ({add}: AddCategoryProps) => {
     const {register, handleSubmit} = useForm<FormInput>()
     const navigate = useNavigate();
     const onAddCate = (data: any) =>{
-        console.log(data);
         add(data)
         navigate('/admin/category')
     }
